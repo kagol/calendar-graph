@@ -293,7 +293,14 @@
       visibility: hidden;
     }
   }
+
+  .calendar-container {
+    height: 500px;
+  }
 </style>
+<div class="calendar-container">
+  <d-calendar-panel [dataSource]="calendarData"></d-calendar-panel>
+</div>
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
