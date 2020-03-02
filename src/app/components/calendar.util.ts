@@ -28,7 +28,11 @@ export function calculateColumnNumber(date: string[] | Date[]) {
     const lastWeekNum = +endWeekNum + 1;
     const diffDay = moment(end).diff(moment(start), 'day') + 1;
     const columnNum = (diffDay - firstWeekNum - lastWeekNum) / 7 + 2;
-    return columnNum;
+    return {
+        firstWeekNum,
+        lastWeekNum,
+        columnNum
+    };
 }
 
 export function transpose(A) {
