@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TCalendarPanel } from './components/calendar.type';
-import { LEGEND_COLOR } from './components/calendar.config';
+import { LEGEND_COLOR, LETTER_K, LETTER_A, IMG_LOVE } from './components/calendar.config';
+import { transpose } from './components/calendar.util';
 
 @Component({
   selector: 'app-root',
@@ -20,4 +21,5 @@ export class AppComponent {
   // [ '2020-02-01' ]
   // [ '2020-04-01' ]
   // [ '2020-02-01', '2020-04-01' ]
+  contributions = transpose([].concat(LETTER_K, IMG_LOVE, LETTER_A))
 }

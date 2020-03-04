@@ -1,4 +1,5 @@
 import * as moment from 'moment';
+import { DEFAULT_ROW_NUMBER, DEFAULT_DATE_FORMAT } from './calendar.config';
 
 export function generateArray(number) {
     const result = [];
@@ -8,7 +9,7 @@ export function generateArray(number) {
     return result;
 }
 
-export function calculateColumnNumber(date: string[] | Date[]) {
+export function getCompleteDateRange(date) {
     let [ first, second ] = date;
     const today = new Date();
     let start = first;
@@ -22,6 +23,11 @@ export function calculateColumnNumber(date: string[] | Date[]) {
             end = first;
         }
     }
+    return [start, end];
+}
+
+export function calculateColumnNumber(date: string[] | Date[]) {
+    let [start, end] = getCompleteDateRange(date);
     const startWeekNum = moment(start).format('d'); // 0, 1, ..., 6(周日 - 周六)
     const firstWeekNum = 7 - +startWeekNum;
     const endWeekNum = moment(end).format('d');
@@ -29,12 +35,15 @@ export function calculateColumnNumber(date: string[] | Date[]) {
     const diffDay = moment(end).diff(moment(start), 'day') + 1;
     const columnNum = (diffDay - firstWeekNum - lastWeekNum) / 7 + 2;
     return {
+        start,
+        end,
         firstWeekNum,
         lastWeekNum,
         columnNum
     };
 }
 
+// 行列转换
 export function transpose(A) {
     let result = [], rowItem = [];
     const rows = A.length;
@@ -49,18 +58,28 @@ export function transpose(A) {
     return result;
 }
 
-// export function transpose(A) {
-//     const rows = A.length;
-//     const cols = A[0].length;
-//     const result = new Array(cols).fill(new Array(rows).fill());
-//     for(let i=0;i<cols;i++){  
-//       result[i] = [];
-//       for(let j=0;j<rows;j++){
-//         result[i][j] = A[j][i];
-//       }
-//     }
-//     return result;
-//   }
+export function getDateArr(dateRange) {
+    // 根据日期渲染
+    const { 
+        firstWeekNum,
+        lastWeekNum,
+        columnNum 
+    } = calculateColumnNumber(dateRange);
+    console.log('columnNum:', columnNum);
+    const start = moment(dateRange[0]).add(firstWeekNum, 'days').format(DEFAULT_DATE_FORMAT);
+    const dateArr = [];
+    for (let rowIndex = 0; rowIndex < DEFAULT_ROW_NUMBER; rowIndex++) {
+        let columns = [];
+        for(let columnIndex = 0; columnIndex < columnNum; columnIndex++) {
+            const columnDate = moment(start)
+            .add(columnIndex * 7 + rowIndex, 'days')
+            .format(DEFAULT_DATE_FORMAT);
+            columns.push(columnDate);
+        }
+        dateArr.push(columns);
+    }
+    return dateArr;
+}
 
 /**
  * 获取某一周的周数组
