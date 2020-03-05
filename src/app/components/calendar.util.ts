@@ -62,7 +62,6 @@ export function getDateArr(dateRange) {
     // 根据日期渲染
     const { 
         firstWeekNum,
-        lastWeekNum,
         columnNum 
     } = calculateColumnNumber(dateRange);
     console.log('columnNum:', columnNum);

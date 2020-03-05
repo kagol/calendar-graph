@@ -51,8 +51,8 @@ export const LETTER_U = [
 ];
 
 export const LETTER_I = [
-    [ '#ebedf0', '#666', '#666', '#f00', 'green', 'green', '#ebedf0' ],
-    [ '#ebedf0', 'green', 'green', 'green', 'green', 'green', '#ebedf0' ],
+    [ 0, 1, 1, 1, 1, 1, 0 ],
+    [ 0, 1, 1, 1, 1, 1, 0 ],
 ];
 
 export const LETTER_K = [
@@ -100,3 +100,6 @@ export const IMG_LOVE = [
 export const EMPTY_WEEK = [
     [ 0, 0, 0, 0, 0, 0, 0 ]
 ]
+
+export const DEVUI = [].concat(EMPTY_WEEK, LETTER_D, EMPTY_WEEK, LETTER_e, EMPTY_WEEK, LETTER_v, EMPTY_WEEK, LETTER_U, EMPTY_WEEK, LETTER_I, EMPTY_WEEK, EMPTY_WEEK, EMPTY_WEEK);
+export const KLOVEASAN = [].concat(EMPTY_WEEK, LETTER_K, EMPTY_WEEK, IMG_LOVE, EMPTY_WEEK, LETTER_A, EMPTY_WEEK, LETTER_S, EMPTY_WEEK, LETTER_A, EMPTY_WEEK, LETTER_N, EMPTY_WEEK)
