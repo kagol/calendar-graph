@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import { DEFAULT_ROW_NUMBER, DEFAULT_DATE_FORMAT } from './calendar.config';
+import { DEFAULT_ROW_NUMBER, DEFAULT_DATE_FORMAT, SYMBOL_MAP } from './calendar.config';
 
 export function getCompleteDateRange(date) {
     let [ first, second ] = date;
@@ -48,6 +48,13 @@ export function transpose(A) {
         result.push(rowItem);
     }
     return result;
+}
+
+// 文字转字母数组
+export function textToSymbolArray(text) {
+    return text.split('').join(' ').split('')
+    .map(char => SYMBOL_MAP[char])
+    .reduce((a, b) => a.concat(b), []);
 }
 
 export function getDateArr(dateRange) {

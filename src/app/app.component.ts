@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TCalendarPanel } from './components/calendar.type';
-import { LOVEDEVUI } from './components/calendar.config';
+import { LOVEDEVUI, KAGOLLOVEASAN } from './components/calendar.config';
 import { transpose } from './components/calendar.util';
 
 @Component({
@@ -10,6 +10,7 @@ import { transpose } from './components/calendar.util';
 })
 export class AppComponent {
   title = 'calendar-graph';
-  calendarData: TCalendarPanel = [ '2020-02-02', '2020-04-01' ];
-  contributions = transpose(LOVEDEVUI);
+  calendarData: TCalendarPanel = [ '2020-01-01', '2020-04-01' ];
+  lovedevui = transpose(LOVEDEVUI);
+  kagolloveasan = transpose(KAGOLLOVEASAN);
 }
