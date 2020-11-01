@@ -10,8 +10,8 @@ A-Za-z0-9❤️
 
 ❤️ DevUI
 
-[❤️ DevUI](assets/lovedevui.png)
+[❤️ DevUI](src/assets/lovedevui.png)
 
 DevUI is excellent
 
-[DevUI is excellent](assets/devui-excellent.png)
+[DevUI is excellent](src/assets/devui-excellent.png)
