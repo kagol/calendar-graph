@@ -125,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "calendar-graph"
+    }
+  },
+  "defaultProject": "calendar-graph",
+  "cli": {
+    "analytics": false
+  }
 }

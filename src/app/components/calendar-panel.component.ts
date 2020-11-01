@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { DEFAULT_DATE_FORMAT, EMPTY_WEEK, LEGEND_COLOR } from './calendar.config';
+import { EMPTY_WEEK } from '../shared/symbol-array';
+import { DEFAULT_DATE_FORMAT, LEGEND_COLOR } from './calendar.config';
 import { TMode } from './calendar.type';
-import { calculateColumnNumber, getCompleteDateRange, getDateArr, transpose } from './calendar.util';
+import { calculateColumnNumber, getCompleteDateRange, getDateArr, textToSymbolArray, transpose } from './calendar.util';
 
 @Component({
     selector: 'd-calendar-panel',
@@ -13,7 +14,7 @@ import { calculateColumnNumber, getCompleteDateRange, getDateArr, transpose } fr
                     dTooltip 
                     [content]="columnItem" 
                     [size]="12" 
-                    [color]="legendColor[contributions[rowIndex][columnIndex]]"
+                    [color]="legendColor[colorData[rowIndex][columnIndex]] || legendColor[0]"
                     *ngFor="let columnItem of rowItem;let columnIndex = index"
                 ></d-color-cube>
             </div>
@@ -25,9 +26,11 @@ export class CalendarPanel implements OnInit {
     @Input() mode: TMode = 'calendar';
     @Input() dateRange;
     @Input() contributions;
+    @Input() text;
     
     dateArr;
     legendColor = LEGEND_COLOR;
+    colorData;
 
     ngOnInit() {
         const now = moment().format(DEFAULT_DATE_FORMAT);
@@ -41,11 +44,17 @@ export class CalendarPanel implements OnInit {
         const { columnNum } = calculateColumnNumber(dateRange);
         this.dateArr = getDateArr(dateRange);
         if (!this.contributions) {
-            const contributions = [];
-            for(let i = 0; i < columnNum; i++) {
-                contributions.push(EMPTY_WEEK[0]);
+            if (this.text) {
+                this.contributions = transpose(textToSymbolArray(this.text));
+            } else {
+                const contributions = [];
+                for(let i = 0; i < columnNum; i++) {
+                    contributions.push(EMPTY_WEEK[0]);
+                }
+                this.contributions = transpose(contributions);
             }
-            this.contributions = transpose(contributions);
         }
+
+        this.colorData = this.contributions;
     }
 }
