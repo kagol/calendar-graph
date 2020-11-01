@@ -33,6 +33,8 @@ import {
     IMG_LOVE, EMPTY_WEEK,
 } from '../shared/symbol-array';
 
+export const CONTRIBUTION_RANGE = [ 0, 3, 6, 9, 10 ];
+
 // 由浅到深
 export const LEGEND_COLOR = [ '#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127', '#f00' ];
 
@@ -42,22 +44,6 @@ export const LEGEND_COLOR_HALLOWEEN = [ '#ebedf0', '#FFEE4A', '#FFC501', '#FE960
 export const DEFAULT_ROW_NUMBER = 7;
 
 export const DEFAULT_DATE_FORMAT = 'YYYY-MM-DD';
-
-export const COLOR_MAP = (number: number, theme = LEGEND_COLOR) => {
-    if (number === 0) {
-        return theme[0];
-    } else if (1 <= number && number <= 3) {
-        return theme[1];
-    } else if (4 <= number && number <= 6) {
-        return theme[2];
-    } else if (7 <= number && number <= 9) {
-        return theme[3];
-    } else if (number >= 10) {
-        return theme[4];
-    } else {
-        return '';
-    }
-}
 
 export const LOVEDEVUI = [].concat(EMPTY_WEEK, IMG_LOVE, EMPTY_WEEK, LETTER_D, EMPTY_WEEK, LETTER_e, EMPTY_WEEK, LETTER_v, EMPTY_WEEK, LETTER_U, EMPTY_WEEK, LETTER_I, EMPTY_WEEK);
 

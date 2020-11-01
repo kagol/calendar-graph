@@ -3,7 +3,7 @@ import * as moment from 'moment';
 import { EMPTY_WEEK } from '../shared/symbol-array';
 import { DEFAULT_DATE_FORMAT, LEGEND_COLOR } from './calendar.config';
 import { TMode } from './calendar.type';
-import { calculateColumnNumber, getCompleteDateRange, getDateArr, textToSymbolArray, transpose } from './calendar.util';
+import { calculateColumnNumber, getColor, getCompleteDateRange, getDateArr, textToSymbolArray, transpose } from './calendar.util';
 
 @Component({
     selector: 'd-calendar-panel',
