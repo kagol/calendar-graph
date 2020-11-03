@@ -113,5 +113,5 @@ export const SYMBOL_MAP = {
     '8': LETTER_8,
     '9': LETTER_9,
     ' ': EMPTY_WEEK,
-    '❤️': IMG_LOVE,
+    '2764': IMG_LOVE, // '❤️'.charCodeAt(0).toString(16) = 2764 使用Unicode编码代替具体的符号
 };

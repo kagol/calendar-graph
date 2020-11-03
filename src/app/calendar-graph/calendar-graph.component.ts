@@ -23,9 +23,16 @@ export class CalendarGraphComponent implements OnInit {
 
   ngOnInit() {
       const now = moment().format(DEFAULT_DATE_FORMAT);
-      const lastYear = moment().subtract(1, "years").format(DEFAULT_DATE_FORMAT);
+       // 开始日期默认为最近一年
+      let startDate = moment().subtract(1, 'years').format(DEFAULT_DATE_FORMAT);
+
+      if (this.text) {
+        const symbolArray = textToSymbolArray(this.text);
+        // 根据文本动态计算开始日期
+        startDate = moment().subtract(symbolArray.length, 'weeks').format(DEFAULT_DATE_FORMAT);
+      }
       
-      let dateRange = [ lastYear, now ];
+      let dateRange = [ startDate, now ];
       if (this.dateRange) {
           dateRange = getCompleteDateRange(this.dateRange);
       }

@@ -40,7 +40,7 @@ export function transpose(A) {
     let result = [], rowItem = [];
     const rows = A.length;
     const cols = A[0].length;
-    for(let i = 0;i < cols;i++){  
+    for(let i = 0;i < cols;i++){
         rowItem = [];
         for(let j = 0;j < rows;j++){
           rowItem.push(A[j][i]);
@@ -53,7 +53,7 @@ export function transpose(A) {
 // 文字转字母数组
 export function textToSymbolArray(text) {
     return text.split('').join(' ').split('')
-    .map(char => SYMBOL_MAP[char])
+    .map(char => SYMBOL_MAP[char] || SYMBOL_MAP[char.charCodeAt(0).toString(16)])
     .reduce((a, b) => a.concat(b), []);
 }
 
