@@ -14,12 +14,14 @@ A-Za-z0-9❤️
 
 ## API
 
-### dateRange
+### date
 
 自定义日期区间
 
 ``` javascript
-const dateRange = ['2020-06-01', '2020-11-03'];
+const date = '2020-06-01';
+const date = ['2020-06-01'];
+const date = ['2020-06-01', '2020-11-03'];
 ```
 
 ### text
@@ -32,12 +34,12 @@ const text = 'DevUI is excellent';
 const text = 'Today is 20201103';
 ```
 
-### contributions
+### sourceData
 
 1. 更灵活的配置
 
 ``` javascript
-const contributionsRow = [ 
+const sourceDataRow = [ 
   [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1 ], 
   [ 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1 ], 
   [ 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1 ], 
@@ -51,7 +53,7 @@ const contributionsRow = [
 2. 以上数据可以通过 transpose 方法行转列来实现
 
 ``` javascript
-const contributionsColumn = transpose([
+const sourceDataColumn = transpose([
   // I
   [ 1, 1, 1, 1, 1, 1, 1 ],
 
@@ -121,7 +123,7 @@ const contributionsColumn = transpose([
 3. 也可以使用定义好的字符变量
 
 ``` javascript
-const contributions = transpose([].concat(
+const sourceData = transpose([].concat(
   LETTER_I, EMPTY_WEEK, EMPTY_WEEK,
   LETTER_a, EMPTY_WEEK, LETTER_m, EMPTY_WEEK, EMPTY_WEEK,
   LETTER_K, EMPTY_WEEK, LETTER_a, EMPTY_WEEK, LETTER_g, EMPTY_WEEK, LETTER_o, EMPTY_WEEK, LETTER_l
