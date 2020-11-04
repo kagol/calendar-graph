@@ -1,4 +1,6 @@
 import * as moment from 'moment';
+import kt from '@kagol/ktools/ktools.esm';
+const { stairStepAccessTable } = kt;
 import { DEFAULT_ROW_NUMBER, DEFAULT_DATE_FORMAT, SYMBOL_MAP, LEGEND_COLOR, CONTRIBUTION_RANGE } from './calendar.config';
 
 export function getCompleteDateRange(date) {
@@ -78,21 +80,7 @@ export function getDateArr(dateRange) {
     return dateArr;
 }
 
-// 通用的阶梯访问表
-export function searchStairStepAccessTable(source, sourceRangeArray, targetArray) {
-    const maxTarget = targetArray.length - 1;
-    let targetIndex = 0;
-    let target = targetArray[maxTarget];
-    while(target === targetArray[maxTarget] && targetIndex < maxTarget) {
-        if (source <= sourceRangeArray[targetIndex]) {
-            target = targetArray[targetIndex];
-        }
-        targetIndex += 1;
-    }
-    return target;
-}
-
 // 根据贡献次数获取相应的颜色（表驱动法）
 export function getColor(contributionNumber: number, contributionRange = CONTRIBUTION_RANGE, theme = LEGEND_COLOR) {
-    return searchStairStepAccessTable(contributionNumber, contributionRange, theme);
+    return stairStepAccessTable(contributionNumber, contributionRange, theme);
 }
