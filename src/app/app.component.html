@@ -1,9 +1,14 @@
 <d-calendar-graph></d-calendar-graph>
-<d-calendar-graph [dateRange]="['2020-06-01', '2020-11-03']"></d-calendar-graph>
+
+<d-calendar-graph date="2020-11-04"></d-calendar-graph>
+<d-calendar-graph [date]="['2020-10-01']"></d-calendar-graph>
+<d-calendar-graph [date]="['2020-06-01', '2020-11-03']"></d-calendar-graph>
+
 <d-calendar-graph text="❤ DevUI"></d-calendar-graph>
 <d-calendar-graph text="DevUI is excellent"></d-calendar-graph>
 <d-calendar-graph text="Today is 20201103"></d-calendar-graph>
-<d-calendar-graph [contributions]="contributions"></d-calendar-graph>
-<d-calendar-graph [contributions]="contributionsRow"></d-calendar-graph>
-<d-calendar-graph [contributions]="contributionsColumn"></d-calendar-graph>
+
+<d-calendar-graph [sourceData]="contributions"></d-calendar-graph>
+<d-calendar-graph [sourceData]="contributionsRow"></d-calendar-graph>
+<d-calendar-graph [sourceData]="contributionsColumn"></d-calendar-graph>
 <router-outlet></router-outlet>
