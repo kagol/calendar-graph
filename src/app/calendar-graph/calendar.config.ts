@@ -31,23 +31,7 @@ import {
     LETTER_6, LETTER_7,
     LETTER_8, LETTER_9,
     IMG_LOVE, EMPTY_WEEK,
-} from '../shared/symbol-array';
-
-export const CONTRIBUTION_RANGE = [ 0, 3, 6, 9, 10 ];
-
-// 由浅到深
-export const LEGEND_COLOR = [ '#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127', '#f00' ];
-
-// 圣诞节主题
-export const LEGEND_COLOR_HALLOWEEN = [ '#ebedf0', '#FFEE4A', '#FFC501', '#FE9600', '#03001C' ];
-
-export const DEFAULT_ROW_NUMBER = 7;
-
-export const DEFAULT_DATE_FORMAT = 'YYYY-MM-DD';
-
-export const LOVEDEVUI = [].concat(EMPTY_WEEK, IMG_LOVE, EMPTY_WEEK, LETTER_D, EMPTY_WEEK, LETTER_e, EMPTY_WEEK, LETTER_v, EMPTY_WEEK, LETTER_U, EMPTY_WEEK, LETTER_I, EMPTY_WEEK);
-
-export const KAGOLLOVEASAN = [].concat(EMPTY_WEEK, LETTER_K, EMPTY_WEEK, LETTER_A, EMPTY_WEEK, IMG_LOVE, EMPTY_WEEK, LETTER_A, EMPTY_WEEK, LETTER_S, EMPTY_WEEK, LETTER_A, EMPTY_WEEK, LETTER_N, EMPTY_WEEK);
+} from '@shared/symbol-array';
 
 export const SYMBOL_MAP = {
     'A': LETTER_A,

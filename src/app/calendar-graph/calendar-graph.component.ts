@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { EMPTY_WEEK } from '../shared/symbol-array';
-import { DEFAULT_DATE_FORMAT, LEGEND_COLOR } from './calendar.config';
-import { calculateColumnNumber, getCompleteDateRange, getDateArr, textToSymbolArray, transpose, getColor } from './calendar.util';
+import { EMPTY_WEEK } from '@shared/symbol-array';
+import { DEFAULT_DATE_FORMAT, LEGEND_COLOR } from '@shared/config';
+import { getColor } from '@shared/util';
+import { calculateColumnNumber, getCompleteDateRange, getDateArr, textToSymbolArray } from './calendar.util';
 
 @Component({
   selector: 'd-calendar-graph',
@@ -23,7 +24,7 @@ export class CalendarGraphComponent implements OnInit {
   completeDateRange;
 
   ngOnInit() {
-
+    
     const contributionNum = 7;
     const contributionRangeArray = [0, 3, 6, 9, 10];
     const colorArray = ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'];
@@ -43,13 +44,13 @@ export class CalendarGraphComponent implements OnInit {
     this.dateArr = getDateArr(dateRange); // TODO: 日期数组计算有误，将导致渲染出来的日期错误
     if (!this.sourceData) {
       if (this.text) {
-        this.sourceData = transpose(textToSymbolArray(this.text));
+        this.sourceData = textToSymbolArray(this.text);
       } else {
         const contributions = [];
         for (let i = 0; i < columnNum; i++) {
           contributions.push(EMPTY_WEEK[0]);
         }
-        this.sourceData = transpose(contributions);
+        this.sourceData = contributions;
       }
     }
 

@@ -1,7 +1,6 @@
 import * as moment from 'moment';
-import kt from '@kagol/ktools/ktools.esm';
-const { stairStepAccessTable } = kt;
-import { DEFAULT_ROW_NUMBER, DEFAULT_DATE_FORMAT, SYMBOL_MAP, LEGEND_COLOR, CONTRIBUTION_RANGE } from './calendar.config';
+import { DEFAULT_ROW_NUMBER, DEFAULT_DATE_FORMAT } from '@shared/config';
+import { SYMBOL_MAP } from './calendar.config';
 
 export function getCompleteDateRange(date) {
     let [ first, second ] = date;
@@ -78,9 +77,4 @@ export function getDateArr(dateRange) {
         dateArr.push(columns);
     }
     return dateArr;
-}
-
-// 根据贡献次数获取相应的颜色（表驱动法）
-export function getColor(contributionNumber: number, contributionRange = CONTRIBUTION_RANGE, theme = LEGEND_COLOR) {
-    return stairStepAccessTable(contributionNumber, contributionRange, theme);
 }

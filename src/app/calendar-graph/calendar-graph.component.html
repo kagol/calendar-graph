@@ -1,11 +1,11 @@
 <div class="calendar-panel">
-  <div class="calendar-row" *ngFor="let rowItem of dateArr;let rowIndex = index">
-      <d-color-cube 
-          dTooltip 
-          [content]="columnItem" 
-          [size]="12" 
-          [color]="legendColor[colorData[rowIndex][columnIndex]] || legendColor[0]"
-          *ngFor="let columnItem of rowItem;let columnIndex = index"
-      ></d-color-cube>
+  <div class="calendar-row" *ngFor="let rowItem of sourceData;let rowIndex = index">
+    <d-color-cube 
+      *ngFor="let columnItem of rowItem;let columnIndex = index"
+      dTooltip 
+      [content]="columnItem" 
+      [size]="12" 
+      [color]="columnItem | color"
+    ></d-color-cube>
   </div>
 </div>

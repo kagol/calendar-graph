@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { transpose } from './calendar-graph/calendar.util';
-import { EMPTY_WEEK, LETTER_a, LETTER_g, LETTER_I, LETTER_K, LETTER_l, LETTER_m, LETTER_o } from './shared/symbol-array';
+import { EMPTY_WEEK, LETTER_a, LETTER_g, LETTER_I, LETTER_K, LETTER_l, LETTER_m, LETTER_o } from '@shared/symbol-array';
 
 @Component({
   selector: 'app-root',
@@ -8,23 +7,13 @@ import { EMPTY_WEEK, LETTER_a, LETTER_g, LETTER_I, LETTER_K, LETTER_l, LETTER_m,
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  contributions = transpose([].concat(
+  contributions = [].concat(
     LETTER_I, EMPTY_WEEK, EMPTY_WEEK,
     LETTER_a, EMPTY_WEEK, LETTER_m, EMPTY_WEEK, EMPTY_WEEK,
     LETTER_K, EMPTY_WEEK, LETTER_a, EMPTY_WEEK, LETTER_g, EMPTY_WEEK, LETTER_o, EMPTY_WEEK, LETTER_l
-  ));
+  );
 
-  contributionsRow = [ 
-    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1 ], 
-    [ 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1 ], 
-    [ 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1 ], 
-    [ 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1 ], 
-    [ 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1 ], 
-    [ 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1 ], 
-    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 ] 
-  ];
-  
-  contributionsColumn = transpose([
+  contributionsColumn = [
     // I
     [ 1, 1, 1, 1, 1, 1, 1 ],
   
@@ -88,5 +77,5 @@ export class AppComponent {
     // l
     [ 1, 1, 1, 1, 1, 1, 0 ],
   
-  ]);
+  ];
 }
