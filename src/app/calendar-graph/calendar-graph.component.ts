@@ -24,7 +24,7 @@ export class CalendarGraphComponent implements OnInit {
   completeDateRange;
 
   ngOnInit() {
-    console.log('this.sourceData:', this.sourceData);
+    
     const contributionNum = 7;
     const contributionRangeArray = [0, 3, 6, 9, 10];
     const colorArray = ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'];
