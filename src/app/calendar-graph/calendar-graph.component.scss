@@ -1,9 +1,15 @@
 .calendar-panel {
+	display: flex;
+	flex-direction: row;
 	margin: 10px;
+
 	.calendar-row {
-		height: 14px;
+		display: flex;
+		flex-direction: column;
 	}
+
 	d-color-cube {
 		margin: 1px;
+		font-size: 0;
 	}
 }
