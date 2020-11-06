@@ -9,3 +9,5 @@ export const LEGEND_COLOR_HALLOWEEN = [ '#ebedf0', '#FFEE4A', '#FFC501', '#FE960
 export const DEFAULT_ROW_NUMBER = 7;
 
 export const DEFAULT_DATE_FORMAT = 'YYYY-MM-DD';
+
+export const DATE_ROW_COUNT = 6;

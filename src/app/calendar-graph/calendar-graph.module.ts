@@ -5,6 +5,7 @@ import { TooltipModule } from 'ng-devui';
 import { CalendarGraphComponent } from './calendar-graph.component';
 import { ColorCubeModule } from '@shared/components/color-cube/color-cube.module';
 import { ColorPipeModule } from '@shared/pipes/color-pipe/color-pipe.module';
+import { CalendarModule } from '@shared/components/calendar/calendar.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ColorPipeModule } from '@shared/pipes/color-pipe/color-pipe.module';
     CommonModule,
     ColorCubeModule,
     TooltipModule,
-    ColorPipeModule
+    ColorPipeModule,
+    CalendarModule,
   ],
   exports: [
     CalendarGraphComponent
