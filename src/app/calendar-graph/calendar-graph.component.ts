@@ -22,6 +22,8 @@ export class CalendarGraphComponent implements OnInit {
   legendColor = LEGEND_COLOR;
   colorData;
   completeDateRange;
+  scheduleArray = [];
+  scheduleMap = {};
 
   ngOnInit() {
     
@@ -87,12 +89,15 @@ export class CalendarGraphComponent implements OnInit {
   showSchedule() {
     const symbolArray = textToSymbolArray(this.text);
     const numberArray = symbolArray.reduce((a, b) => a.concat(b), []);
+    console.log('numberArray:', numberArray);
     const [start] = this.completeDateRange;
     for (const index in numberArray) {
       const date = moment(start).add(index, 'days').format(DEFAULT_DATE_FORMAT);
       const number = numberArray[index];
       if (number > 0) {
         console.log(`您需要在${date}提交${number}次`);
+        this.scheduleArray.push([ date, number ]);
+        this.scheduleMap[date] = number;
       }
     }
   }

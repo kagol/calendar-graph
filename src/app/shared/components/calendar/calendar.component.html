@@ -6,7 +6,13 @@
   </thead>
   <tbody>
     <tr *ngFor="let weekRow of calendarTable">
-      <td *ngFor="let day of weekRow" [title]="day.format(dateFormat)">
+      <td 
+        *ngFor="let day of weekRow" 
+        [title]="day.format(dateFormat)"
+        [ngClass]="{
+          'calendar-selected-date': selected[day.format(dateFormat)]
+        }"
+      >
         <div class="calendar-date">{{ day.format('D') }}</div>
       </td>
   </tbody>
