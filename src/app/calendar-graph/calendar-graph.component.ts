@@ -89,7 +89,6 @@ export class CalendarGraphComponent implements OnInit {
   showSchedule() {
     const symbolArray = textToSymbolArray(this.text);
     const numberArray = symbolArray.reduce((a, b) => a.concat(b), []);
-    console.log('numberArray:', numberArray);
     const [start] = this.completeDateRange;
     for (const index in numberArray) {
       const date = moment(start).add(index, 'days').format(DEFAULT_DATE_FORMAT);
