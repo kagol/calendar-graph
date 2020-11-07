@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DEFAULT_DATE_FORMAT } from '@shared/config';
 import { getCalendarArr } from '@shared/util';
 
@@ -12,6 +12,8 @@ const WEEK_ARR = ['日', '一', '二', '三', '四', '五', '六'];
 })
 export class CalendarComponent implements OnInit {
 
+  @Input() selected;
+
   weekArr = WEEK_ARR;
   calendarTable;
   dateFormat = DEFAULT_DATE_FORMAT;
@@ -23,7 +25,6 @@ export class CalendarComponent implements OnInit {
     const yearCount = 0;
     const showOtherMonth = true;
     this.calendarTable = getCalendarArr(moment().format(DEFAULT_DATE_FORMAT), monthCount, yearCount, showOtherMonth);
-    console.log('this.calendarTable:', this.calendarTable);
   }
 
 }

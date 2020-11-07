@@ -9,4 +9,7 @@
     ></d-color-cube>
   </div>
 </div>
-<d-calendar *ngIf="schedule"></d-calendar>
+<d-calendar *ngIf="schedule" [selected]="scheduleMap"></d-calendar>
+<div *ngFor="let scheduleItem of scheduleArray">
+  你需要在{{scheduleItem[0]}}提交{{scheduleItem[1]}}次
+</div>
