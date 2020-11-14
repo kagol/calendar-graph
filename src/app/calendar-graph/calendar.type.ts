@@ -7,3 +7,5 @@ export interface ICalendarOption {
 }
 
 export type TCalendarPanel = ICalendarOption[] | string[];
+
+export type TTheme = string | string[] | number[] | object;

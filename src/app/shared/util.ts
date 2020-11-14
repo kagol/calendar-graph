@@ -1,12 +1,12 @@
 import * as moment from 'moment';
 import kt from '@kagol/ktools/ktools.esm';
-import { CONTRIBUTION_RANGE, LEGEND_COLOR, DATE_ROW_COUNT } from './config';
+import { DEFAULT_CONTRIBUTION_RANGE, DEFAULT_THEME, DATE_ROW_COUNT } from './config';
 
 const { stairStepAccessTable } = kt;
 
 // 根据贡献次数获取相应的颜色（表驱动法）
-export function getColor(contributionNumber: number, contributionRange = CONTRIBUTION_RANGE, theme = LEGEND_COLOR) {
-  return stairStepAccessTable(contributionNumber, contributionRange, theme);
+export function getColor(contributionNumber: number, contributionRange = DEFAULT_CONTRIBUTION_RANGE, theme = DEFAULT_THEME) {
+    return stairStepAccessTable(contributionNumber, contributionRange, theme);
 }
 
 /**
@@ -18,20 +18,20 @@ export function getColor(contributionNumber: number, contributionRange = CONTRIB
 export function getWeekArr(date, num, showOtherMonth, format?) {
     let weekArr = [];
     let dateMoment = date;
-    if(!moment.isMoment(date)){
+    if (!moment.isMoment(date)) {
         dateMoment = moment(date);
     }
     const thisMonth = dateMoment.format('M');
     let index = dateMoment.format('d');
-    let firstDay = -index+num*7;
-    let lastDay = 7-index+num*7;
-    for(let day=firstDay;day<lastDay;day++){
+    let firstDay = -index + num * 7;
+    let lastDay = 7 - index + num * 7;
+    for (let day = firstDay; day < lastDay; day++) {
         let weekItem = moment(dateMoment).add(day, 'days');
         let formatWeekItem = weekItem;
         // if(format){
         //     formatWeekItem = weekItem.format(format);
         // }
-        if(!showOtherMonth && thisMonth !== formatWeekItem.format('M')){
+        if (!showOtherMonth && thisMonth !== formatWeekItem.format('M')) {
             formatWeekItem = null;
         }
         weekArr.push(formatWeekItem);
@@ -45,14 +45,14 @@ export function getWeekArr(date, num, showOtherMonth, format?) {
  */
 export function getFirstDayOfMonth(date, monthNum, yearNum) {
     let dateMoment = date;
-    if(!moment.isMoment(date)){
+    if (!moment.isMoment(date)) {
         dateMoment = moment(date);
     }
     let year = moment(dateMoment).add(yearNum, 'years').add(monthNum, 'months').format('YYYY');
     let month = moment(dateMoment).add(yearNum, 'years').add(monthNum, 'months').format('MM');
     // let month = dateMoment.format('MM');
     let day = '01';
-    let firstDayOfMonth = year+'-'+month+'-'+day;
+    let firstDayOfMonth = year + '-' + month + '-' + day;
     return firstDayOfMonth;
 }
 
@@ -60,12 +60,41 @@ export function getFirstDayOfMonth(date, monthNum, yearNum) {
  * 获取日历数组
  * @param {某个日期} date 
  */
-export function getCalendarArr(date, monthNum=0, yearNum=0, showOtherMonth=true) {
-  let calendarArr = [];
-  let firstDayOfMonth = getFirstDayOfMonth(date, monthNum, yearNum);
-  for(let row = 0; row < DATE_ROW_COUNT; row++){
-      let rowArr = getWeekArr(firstDayOfMonth, row, showOtherMonth);
-      calendarArr.push(rowArr);
-  }
-  return calendarArr;
+export function getCalendarArr(date, monthNum = 0, yearNum = 0, showOtherMonth = true) {
+    let calendarArr = [];
+    let firstDayOfMonth = getFirstDayOfMonth(date, monthNum, yearNum);
+    for (let row = 0; row < DATE_ROW_COUNT; row++) {
+        let rowArr = getWeekArr(firstDayOfMonth, row, showOtherMonth);
+        calendarArr.push(rowArr);
+    }
+    return calendarArr;
+}
+
+export function getTag(value) {
+    if (value == null) {
+        return value === undefined ? '[object Undefined]' : '[object Null]';
+    }
+    return Object.prototype.toString.call(value);
+}
+
+export function isObjectLike(value) {
+    return typeof value === 'object' && value !== null;
+}
+
+export function isPlainObject(value) {
+    if (!isObjectLike(value) || getTag(value) != '[object Object]') {
+        return false;
+    }
+    if (Object.getPrototypeOf(value) === null) {
+        return true;
+    }
+    let proto = value;
+    while (Object.getPrototypeOf(proto) !== null) {
+        proto = Object.getPrototypeOf(proto);
+    }
+    return Object.getPrototypeOf(value) === proto;
+}
+
+export function isColor(string) {
+    return /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/.test(string);
 }

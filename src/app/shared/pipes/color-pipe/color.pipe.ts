@@ -6,8 +6,8 @@ import { getColor } from '@shared/util';
 })
 export class ColorPipe implements PipeTransform {
 
-  transform(value: number): string {
-    return getColor(value);
+  transform(value: number, source: number[], target: string[]): string {
+    return getColor(value, source, target);
   }
 
 }

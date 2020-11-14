@@ -1,15 +1,15 @@
 <div class="calendar-panel">
-  <div class="calendar-row" *ngFor="let rowItem of sourceData;let rowIndex = index">
+  <div class="calendar-row" *ngFor="let rowItem of dataSource;let rowIndex = index">
     <d-color-cube 
       *ngFor="let columnItem of rowItem;let columnIndex = index"
       dTooltip 
       [content]="columnItem" 
       [size]="12" 
-      [color]="columnItem | color"
+      [color]="columnItem | color:source:target"
     ></d-color-cube>
   </div>
 </div>
 <d-calendar *ngIf="schedule" [selected]="scheduleMap"></d-calendar>
-<div *ngFor="let scheduleItem of scheduleArray">
+<!-- <div *ngFor="let scheduleItem of scheduleArray">
   你需要在{{scheduleItem[0]}}提交{{scheduleItem[1]}}次
-</div>
+</div> -->
