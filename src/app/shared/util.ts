@@ -2,7 +2,16 @@ import * as moment from 'moment';
 import kt from '@kagol/ktools/ktools.esm';
 import { DEFAULT_CONTRIBUTION_RANGE, DEFAULT_THEME, DATE_ROW_COUNT } from './config';
 
-const { stairStepAccessTable } = kt;
+const { 
+    isColor,
+    isPlainObject, 
+    stairStepAccessTable, 
+} = kt;
+
+export {
+    isColor,
+    isPlainObject, 
+};
 
 // 根据贡献次数获取相应的颜色（表驱动法）
 export function getColor(contributionNumber: number, contributionRange = DEFAULT_CONTRIBUTION_RANGE, theme = DEFAULT_THEME) {
@@ -68,33 +77,4 @@ export function getCalendarArr(date, monthNum = 0, yearNum = 0, showOtherMonth =
         calendarArr.push(rowArr);
     }
     return calendarArr;
-}
-
-export function getTag(value) {
-    if (value == null) {
-        return value === undefined ? '[object Undefined]' : '[object Null]';
-    }
-    return Object.prototype.toString.call(value);
-}
-
-export function isObjectLike(value) {
-    return typeof value === 'object' && value !== null;
-}
-
-export function isPlainObject(value) {
-    if (!isObjectLike(value) || getTag(value) != '[object Object]') {
-        return false;
-    }
-    if (Object.getPrototypeOf(value) === null) {
-        return true;
-    }
-    let proto = value;
-    while (Object.getPrototypeOf(proto) !== null) {
-        proto = Object.getPrototypeOf(proto);
-    }
-    return Object.getPrototypeOf(value) === proto;
-}
-
-export function isColor(string) {
-    return /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/.test(string);
 }
