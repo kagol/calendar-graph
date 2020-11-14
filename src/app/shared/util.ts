@@ -1,12 +1,10 @@
 import * as moment from 'moment';
-import kt from '@kagol/ktools/ktools.esm';
-import { DEFAULT_CONTRIBUTION_RANGE, DEFAULT_THEME, DATE_ROW_COUNT } from './config';
-
-const { 
+import {
     isColor,
     isPlainObject, 
     stairStepAccessTable, 
-} = kt;
+} from '@kagol/ktools';
+import { DEFAULT_CONTRIBUTION_RANGE, DEFAULT_THEME, DATE_ROW_COUNT } from './config';
 
 export {
     isColor,
