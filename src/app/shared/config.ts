@@ -12,6 +12,10 @@ export const DEFAULT_DATE_FORMAT = 'YYYY-MM-DD';
 
 export const DATE_ROW_COUNT = 6;
 
+export const THEME_MAP = {
+  'halloween': THEME_HALLOWEEN,
+}
+
 /*
 ['#d8e9f2', '#f9ef9d', '#fbe793', '#fdde8a', '#fdcf7d']
 ['#d8e9f2', '#fdc070', '#fdb163', '#fa9e59', '#f88a50']

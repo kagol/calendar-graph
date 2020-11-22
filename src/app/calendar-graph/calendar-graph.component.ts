@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { EMPTY_WEEK } from '@shared/symbol-array';
-import { DEFAULT_DATE_FORMAT, DEFAULT_THEME } from '@shared/config';
+import { DEFAULT_CONTRIBUTION_RANGE, DEFAULT_DATE_FORMAT, DEFAULT_THEME, THEME_MAP } from '@shared/config';
 import { getColor, isPlainObject, isColor } from '@shared/util';
 import { calculateColumnNumber, getCompleteDateRange, getDateArr, textToSymbolArray } from './calendar.util';
 import { TTheme } from './calendar.type';
@@ -81,14 +81,31 @@ export class CalendarGraphComponent implements OnInit {
     if (typeof theme === 'string') {
       console.log('is string', theme);
       if (isColor(theme)) {
+        // TODO 这里需要根据颜色值获取到渐变值
         console.log('is color', theme);
       } else {
         console.log('is theme name', theme);
+        return {
+          source: DEFAULT_CONTRIBUTION_RANGE,
+          target: THEME_MAP[theme]
+        };
       }
     } else if (Array.isArray(theme)) {
       console.log('is array', theme);
+      return {
+        source: DEFAULT_CONTRIBUTION_RANGE,
+        target: theme
+      };
     } else if (isPlainObject(theme)) {
       console.log('is object', theme);
+      const { source, target } = theme;
+      if (source && target) {
+        return theme;
+      }
+      return {
+        source: Object.keys(theme),
+        target: Object.values(theme),
+      };
     } else {
       throw new Error('The theme is invalid.');
     }
