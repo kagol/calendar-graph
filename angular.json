@@ -124,6 +124,46 @@
           }
         }
       }
+    },
+    "calendar": {
+      "projectType": "library",
+      "root": "projects/calendar",
+      "sourceRoot": "projects/calendar/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/calendar/tsconfig.lib.json",
+            "project": "projects/calendar/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/calendar/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/calendar/src/test.ts",
+            "tsConfig": "projects/calendar/tsconfig.spec.json",
+            "karmaConfig": "projects/calendar/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/calendar/tsconfig.lib.json",
+              "projects/calendar/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "calendar-graph",
