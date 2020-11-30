@@ -4,7 +4,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CalendarGraphModule } from './calendar-graph/calendar-graph.module';
+// import { CalendarGraphModule } from './calendar-graph/calendar-graph.module';
+// import { CalendarGraphModule } from '../../dist/calendar';
+import { CalendarGraphModule } from 'ng-calendar-graph';
 
 @NgModule({
   declarations: [

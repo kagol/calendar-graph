@@ -15,6 +15,12 @@
     },
     {
       "path": "./e2e/tsconfig.json"
+    },
+    {
+      "path": "./projects/calendar/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/calendar/tsconfig.spec.json"
     }
 ]
 }

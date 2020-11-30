@@ -1,0 +1,15 @@
+.calendar-panel {
+	display: flex;
+	flex-direction: row;
+	margin: 10px;
+
+	.calendar-row {
+		display: flex;
+		flex-direction: column;
+	}
+
+	d-color-cube {
+		margin: 1px;
+		font-size: 0;
+	}
+}
