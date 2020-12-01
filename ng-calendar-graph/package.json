@@ -1,6 +1,14 @@
 {
   "name": "ng-calendar-graph",
   "version": "0.0.1",
+  "description": "生成指定的Github贡献图",
+  "keywords": [
+    "github",
+    "calendar-graph",
+    "angular"
+  ],
+  "author": "Kagol",
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^10.0.14",
     "@angular/core": "^10.0.14"
