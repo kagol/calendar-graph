@@ -17,10 +17,10 @@
       "path": "./e2e/tsconfig.json"
     },
     {
-      "path": "./projects/calendar/tsconfig.lib.json"
+      "path": "./ng-calendar-graph/tsconfig.lib.json"
     },
     {
-      "path": "./projects/calendar/tsconfig.spec.json"
+      "path": "./ng-calendar-graph/tsconfig.spec.json"
     }
 ]
 }

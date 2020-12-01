@@ -127,36 +127,36 @@
     },
     "calendar": {
       "projectType": "library",
-      "root": "projects/calendar",
-      "sourceRoot": "projects/calendar/src",
+      "root": "ng-calendar-graph",
+      "sourceRoot": "ng-calendar-graph",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/calendar/tsconfig.lib.json",
-            "project": "projects/calendar/ng-package.json"
+            "tsConfig": "ng-calendar-graph/tsconfig.lib.json",
+            "project": "ng-calendar-graph/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/calendar/tsconfig.lib.prod.json"
+              "tsConfig": "ng-calendar-graph/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/calendar/src/test.ts",
-            "tsConfig": "projects/calendar/tsconfig.spec.json",
-            "karmaConfig": "projects/calendar/karma.conf.js"
+            "main": "ng-calendar-graph/test.ts",
+            "tsConfig": "ng-calendar-graph/tsconfig.spec.json",
+            "karmaConfig": "ng-calendar-graph/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/calendar/tsconfig.lib.json",
-              "projects/calendar/tsconfig.spec.json"
+              "ng-calendar-graph/tsconfig.lib.json",
+              "ng-calendar-graph/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

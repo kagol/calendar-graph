@@ -1,6 +1,6 @@
 import * as moment from 'moment';
 import { Component, Input, OnInit } from '@angular/core';
-import { DEFAULT_DATE_FORMAT } from '../..//config';
+import { DEFAULT_DATE_FORMAT } from '../../config';
 import { getCalendarArr } from '../../util';
 
 const WEEK_ARR = ['日', '一', '二', '三', '四', '五', '六'];
