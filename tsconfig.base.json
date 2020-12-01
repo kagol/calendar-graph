@@ -20,11 +20,11 @@
     ],
     "paths": {
       "@shared/*": [
-        "src/app/shared/*"
+        "ng-calendar-graph/calendar-graph/shared/*"
       ],
-      "calendar": [
-        "dist/calendar/calendar",
-        "dist/calendar"
+      "ng-calendar-graph": [
+        "dist/ng-calendar-graph",
+        "dist"
       ]
     }
   }

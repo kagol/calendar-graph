@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EMPTY_WEEK, LETTER_a, LETTER_g, LETTER_I, LETTER_K, LETTER_l, LETTER_m, LETTER_o } from '@shared/symbol-array';
+import { EMPTY_WEEK, LETTER_a, LETTER_g, LETTER_I, LETTER_K, LETTER_l, LETTER_m, LETTER_o } from 'ng-calendar-graph/calendar-graph/shared/symbol-array';
 
 @Component({
   selector: 'app-root',
