@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 import { DEFAULT_ROW_NUMBER, DEFAULT_DATE_FORMAT } from './shared/config';
 import { SYMBOL_MAP } from './calendar.config';
 

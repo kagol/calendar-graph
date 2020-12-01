@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 import { Component, Input, OnInit } from '@angular/core';
 import { DEFAULT_DATE_FORMAT } from '../../config';
 import { getCalendarArr } from '../../util';
