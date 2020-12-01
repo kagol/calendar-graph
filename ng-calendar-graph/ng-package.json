@@ -2,6 +2,11 @@
   "$schema": "../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../dist",
   "lib": {
-    "entryFile": "public-api.ts"
+    "entryFile": "public-api.ts",
+    "umdModuleIds": {
+      "moment": "moment",
+      "@kagol/ktools": "@kagol/ktools",
+      "ng-devui": "ng-devui"
+    }
   }
 }

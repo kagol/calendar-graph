@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import * as moment from 'moment';
+import moment from 'moment';
 import { EMPTY_WEEK } from './shared/symbol-array';
 import { DEFAULT_CONTRIBUTION_RANGE, DEFAULT_DATE_FORMAT, DEFAULT_THEME, THEME_MAP } from './shared/config';
 import { getColor, isPlainObject, isColor } from './shared/util';
