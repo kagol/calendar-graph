@@ -22,7 +22,7 @@
     "@angular/router": "~10.0.3",
     "@kagol/ktools": "0.0.3",
     "moment": "^2.29.1",
-    "ng-calendar-graph": "0.0.5",
+    "ng-calendar-graph": "0.0.6",
     "ng-devui": "^9.3.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
