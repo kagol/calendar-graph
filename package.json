@@ -7,6 +7,8 @@
     "build": "ng build",
     "build:lib": "ng build calendar --prod",
     "test": "ng test",
+    "test:lib": "ng test calendar",
+    "coverage": "ng test calendar --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
