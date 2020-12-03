@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import moment from 'moment';
 import { EMPTY_WEEK } from './shared/symbol-array';
-import { DEFAULT_CONTRIBUTION_RANGE, DEFAULT_DATE_FORMAT, DEFAULT_THEME, THEME_MAP } from './shared/config';
-import { getColor, isPlainObject, isColor } from './shared/util';
+import { DEFAULT_DATE_FORMAT, DEFAULT_THEME } from './shared/config';
+import { getColor } from './shared/util';
 import { calculateColumnNumber, getCompleteDateRange, getDateArr, textToSymbolArray } from './calendar.util';
 import { TTheme } from './calendar.type';
+import { CalendarGraphService } from './calendar-graph.service';
 
 @Component({
   selector: 'd-calendar-graph',
@@ -12,7 +13,6 @@ import { TTheme } from './calendar.type';
   styleUrls: ['./calendar-graph.component.scss']
 })
 export class CalendarGraphComponent implements OnInit {
-
   @Input() date;
   @Input() schedule = false;
   @Input() dataSource;
@@ -28,6 +28,10 @@ export class CalendarGraphComponent implements OnInit {
   source;
   target;
 
+  constructor(
+    private calendarGraphService: CalendarGraphService
+  ) {}
+
   ngOnInit() {
     console.log('this.dataSource:', this.dataSource);
     
@@ -41,15 +45,15 @@ export class CalendarGraphComponent implements OnInit {
 
     console.log('this.theme:', this.theme);
     if (this.theme) {
-      const { source, target } = this.prepareTheme(this.theme);
+      const { source, target } = this.calendarGraphService.prepareTheme(this.theme);
       this.source = source;
       this.target = target;
     }
 
-    let [start, end] = this.getDateRange(this.date);
+    let [start, end] = this.calendarGraphService.getDateRange(this.date);
 
     if (this.text) {
-      end = this.getEndDate(start, this.text);
+      end = this.calendarGraphService.getEndDate(start, this.text);
     }
 
     const dateRange = getCompleteDateRange([start, end]);
@@ -74,65 +78,6 @@ export class CalendarGraphComponent implements OnInit {
     if (this.schedule) {
       this.showSchedule();
     }
-  }
-
-  prepareTheme(theme) {
-    console.log('prepareTheme theme:', theme);
-    if (typeof theme === 'string') {
-      console.log('is string', theme);
-      if (isColor(theme)) {
-        // TODO 这里需要根据颜色值获取到渐变值
-        console.log('is color', theme);
-      } else {
-        console.log('is theme name', theme);
-        return {
-          source: DEFAULT_CONTRIBUTION_RANGE,
-          target: THEME_MAP[theme]
-        };
-      }
-    } else if (Array.isArray(theme)) {
-      console.log('is array', theme);
-      return {
-        source: DEFAULT_CONTRIBUTION_RANGE,
-        target: theme
-      };
-    } else if (isPlainObject(theme)) {
-      console.log('is object', theme);
-      const { source, target } = theme;
-      if (source && target) {
-        return theme;
-      }
-      return {
-        source: Object.keys(theme),
-        target: Object.values(theme),
-      };
-    } else {
-      throw new Error('The theme is invalid.');
-    }
-    return theme;
-  }
-
-  getDateRange(date) {
-    let start = moment().subtract(1, 'years');
-    let end = moment();
-    if (typeof date === 'string') {
-      start = moment(date);
-      end = moment(date).add(1, 'years');
-    } else if (Array.isArray(date) && date.length > 0) {
-      const [first, second] = date;
-      start = moment(first);
-      end = moment(first).add(1, 'years');
-      if (second) {
-        end = moment(second);
-      }
-    }
-    return [start, end];
-  }
-
-  // 根据文本动态计算结束日期
-  getEndDate(start, text) {
-    const dateColumn = textToSymbolArray(text); // 计算列数（周数）
-    return moment(start).add(dateColumn.length, 'weeks');
   }
 
   showSchedule() {
