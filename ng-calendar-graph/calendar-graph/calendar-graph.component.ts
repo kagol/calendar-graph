@@ -33,50 +33,61 @@ export class CalendarGraphComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log('this.dataSource:', this.dataSource);
-    
+    this.constructColorPipeParam();
+
+    const dateRange = this.prepareDateRange();
+    this.completeDateRange = dateRange;
+    console.log('this.completeDateRange:', this.completeDateRange);
+    this.dateArr = getDateArr(dateRange); // TODO: 日期数组计算有误，将导致渲染出来的日期错误
+    console.log('this.dateArr:', this.dateArr);
+
+    if (!this.dataSource) {
+      this.constructDataSource();
+    }
+
+    this.colorData = this.dataSource;
+    console.log('this.colorData:', this.colorData);
+
+    if (this.schedule) {
+      this.showSchedule();
+    }
+  }
+
+  prepareDateRange() {
+    let [start, end] = this.calendarGraphService.getDateRange(this.date);
+    if (this.text) {
+      end = this.calendarGraphService.getEndDate(start, this.text);
+    }
+    return getCompleteDateRange([start, end]);
+  }
+
+  constructDataSource() {
+    const dateRange = this.prepareDateRange();
+    const { columnNum } = calculateColumnNumber(dateRange);
+    if (this.text) {
+      this.dataSource = textToSymbolArray(this.text);
+    } else {
+      const contributions = [];
+      for (let i = 0; i < columnNum; i++) {
+        contributions.push(EMPTY_WEEK[0]);
+      }
+      this.dataSource = contributions;
+    }
+  }
+
+  constructColorPipeParam() {
     const contributionNum = 7;
     const contributionRangeArray = [0, 3, 6, 9, 10];
     const colorArray = ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'];
+    const color = getColor(contributionNum, contributionRangeArray, colorArray);
+    // console.log('color:', color); // '#239a3b'
     this.source = contributionRangeArray;
     this.target = colorArray;
-    const color = getColor(contributionNum, contributionRangeArray, colorArray);
-    console.log('color:', color); // '#239a3b'
 
-    console.log('this.theme:', this.theme);
     if (this.theme) {
       const { source, target } = this.calendarGraphService.prepareTheme(this.theme);
       this.source = source;
       this.target = target;
-    }
-
-    let [start, end] = this.calendarGraphService.getDateRange(this.date);
-
-    if (this.text) {
-      end = this.calendarGraphService.getEndDate(start, this.text);
-    }
-
-    const dateRange = getCompleteDateRange([start, end]);
-    this.completeDateRange = dateRange;
-
-    const { columnNum } = calculateColumnNumber(dateRange);
-    this.dateArr = getDateArr(dateRange); // TODO: 日期数组计算有误，将导致渲染出来的日期错误
-    if (!this.dataSource) {
-      if (this.text) {
-        this.dataSource = textToSymbolArray(this.text);
-      } else {
-        const contributions = [];
-        for (let i = 0; i < columnNum; i++) {
-          contributions.push(EMPTY_WEEK[0]);
-        }
-        this.dataSource = contributions;
-      }
-    }
-
-    this.colorData = this.dataSource;
-
-    if (this.schedule) {
-      this.showSchedule();
     }
   }
 
