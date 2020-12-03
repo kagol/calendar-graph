@@ -1,8 +1,7 @@
-<d-calendar-graph></d-calendar-graph>
+<h2>默认使用</h2>
+<d-calendar-graph text="ka"></d-calendar-graph>
 
-<!-- <lib-calendar></lib-calendar> -->
-
-Theme:
+<!-- <h2>定制主题 theme</h2>
 <d-calendar-graph text="DevUI is excellent" theme="halloween"></d-calendar-graph>
 <d-calendar-graph text="DevUI is excellent" theme="#7F7FF0"></d-calendar-graph>
 <d-calendar-graph text="DevUI is excellent" [theme]="['#d8e9f2', '#fdde8a', '#fa9e59', '#e55648', '#ae1345']"></d-calendar-graph>
@@ -22,14 +21,32 @@ Theme:
   '1000': '#9e0142'
 }"></d-calendar-graph>
 
+<h2>定制日期 date</h2>
 <d-calendar-graph date="2020-11-04"></d-calendar-graph>
 <d-calendar-graph [date]="['2020-10-01']"></d-calendar-graph>
 <d-calendar-graph [date]="['2020-06-01', '2020-11-03']"></d-calendar-graph>
 
+<h2>打印提交日程 schedule</h2>
 <d-calendar-graph date="2020-10-01" text="❤ DevUI" [schedule]="true"></d-calendar-graph>
+
+<h2>定制文本 text</h2>
 <d-calendar-graph text="DevUI is excellent"></d-calendar-graph>
 <d-calendar-graph text="Today is 20201103"></d-calendar-graph>
 
+<h2>更灵活的配置 dataSource</h2>
 <d-calendar-graph [dataSource]="contributions"></d-calendar-graph>
 <d-calendar-graph [dataSource]="contributionsColumn"></d-calendar-graph>
+<d-calendar-graph [dataSource]="contributionsColumn" theme="halloween"></d-calendar-graph> -->
+
+<!--
+  L1 1-4
+  L2 5-7-9
+  L3 11-12-13
+  L4 18
+-->
+<d-calendar-graph date="2019-12-01" [dataSource]="myContributions" [theme]="{
+  source: [0, 4, 9, 13, 18],
+  target: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']
+}"></d-calendar-graph>
+
 <router-outlet></router-outlet>

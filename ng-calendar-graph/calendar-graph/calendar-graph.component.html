@@ -4,7 +4,7 @@
       *ngFor="let columnItem of rowItem;let columnIndex = index"
       dTooltip 
       [content]="columnItem" 
-      [size]="12" 
+      [size]="11" 
       [color]="columnItem | color:source:target"
     ></d-color-cube>
   </div>
@@ -13,3 +13,15 @@
 <!-- <div *ngFor="let scheduleItem of scheduleArray">
   你需要在{{scheduleItem[0]}}提交{{scheduleItem[1]}}次
 </div> -->
+<!--
+--color-calendar-graph-day-bg: #ebedf0;
+--color-calendar-graph-day-border: rgba(27,31,35,0.06);
+--color-calendar-graph-day-L1-bg: #9be9a8;
+--color-calendar-graph-day-L2-bg: #40c463;
+--color-calendar-graph-day-L3-bg: #30a14e;
+--color-calendar-graph-day-L4-bg: #216e39;
+--color-calendar-graph-day-L4-border: rgba(27,31,35,0.06);
+--color-calendar-graph-day-L3-border: rgba(27,31,35,0.06);
+--color-calendar-graph-day-L2-border: rgba(27,31,35,0.06);
+--color-calendar-graph-day-L1-border: rgba(27,31,35,0.06);
+-->
