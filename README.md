@@ -172,3 +172,12 @@ const dataSource = [].concat(
 DevUI is excellent
 
 [DevUI is excellent](src/assets/devui-excellent.png)
+
+## TODO
+
+- 解析多种格式的theme
+  - 主题名称，如：'halloween'
+  - 基本色，如：'#7F7FF0'
+  - 颜色数组，如：[ '#e55648', ... ]
+  - 阶梯查找表，如：{ source: [], target: [] }
+  - 数值/颜色映射表，如：{ 10: '#fdcf7d', ... }

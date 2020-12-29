@@ -49,4 +49,29 @@
   target: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']
 }"></d-calendar-graph>
 
+
+<d-calendar-graph text="DevUI is excellent" theme="halloween"></d-calendar-graph>
+
+<d-calendar-graph text="DevUI is excellent" theme="#7F7FF0"></d-calendar-graph>
+
+<d-calendar-graph text="DevUI is excellent" [theme]="['#d8e9f2', '#fdde8a', '#fa9e59', '#e55648', '#ae1345']"></d-calendar-graph>
+
+<d-calendar-graph text="DevUI is excellent" [theme]="{
+  source: [0, 10, 20, 30, 40],
+  target: ['#d8e9f2', '#f57647', '#ee6544', '#e55648', '#db484c']
+}"></d-calendar-graph>
+
+<d-calendar-graph text="DevUI is excellent" [theme]="{
+  '0': '#d8e9f2',
+  '5': '#fbe793',
+  '10': '#fdcf7d',
+  '20': '#fdb163',
+  '50': '#f88a50',
+  '100': '#ee6544',
+  '200': '#db484c',
+  '500': '#bf2649',
+  '1000': '#9e0142'
+}"></d-calendar-graph>
+
+
 <router-outlet></router-outlet>

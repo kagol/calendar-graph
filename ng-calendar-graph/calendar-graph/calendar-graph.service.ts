@@ -17,6 +17,7 @@ export class CalendarGraphService {
         // TODO 这里需要根据颜色值获取到渐变值
         console.log('is color', theme);
       } else {
+        // 主题名
         console.log('is theme name', theme);
         return {
           source: DEFAULT_CONTRIBUTION_RANGE,
