@@ -2,13 +2,17 @@ import moment from 'moment';
 import {
     isColor,
     isPlainObject, 
-    stairStepAccessTable, 
+    stairStepAccessTable,
+    hex2rgb,
+    rgb2hex,
 } from '@kagol/ktools';
 import { DEFAULT_CONTRIBUTION_RANGE, DEFAULT_THEME, DATE_ROW_COUNT } from './config';
 
 export {
     isColor,
     isPlainObject, 
+    hex2rgb,
+    rgb2hex,
 };
 
 // 根据贡献次数获取相应的颜色（表驱动法）

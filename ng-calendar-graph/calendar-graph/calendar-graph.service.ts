@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import moment from 'moment';
 
-import { DEFAULT_CONTRIBUTION_RANGE, THEME_MAP } from './shared/config';
-import { isPlainObject, isColor } from './shared/util';
+import { DEFAULT_CONTRIBUTION_RANGE, DEFAULT_THEME, THEME_MAP } from './shared/config';
+import { isPlainObject, isColor, hex2rgb, rgb2hex } from './shared/util';
 import { textToSymbolArray } from './calendar.util';
 
 @Injectable({
@@ -16,6 +16,20 @@ export class CalendarGraphService {
       if (isColor(theme)) {
         // TODO 这里需要根据颜色值获取到渐变值
         console.log('is color', theme);
+        console.log('is color rgb:', hex2rgb(theme));
+
+        const clipColor = (color, step) => color - step < 0 ? 0 : color - step;
+
+        let target = [];
+        for (let i = 1; i < DEFAULT_CONTRIBUTION_RANGE.length; i++) {
+          const newRgb = hex2rgb(theme).map(color => clipColor(color, i * 30));
+          target.push(rgb2hex(newRgb));
+        }
+        console.log('target:', target);
+        return {
+          source: DEFAULT_CONTRIBUTION_RANGE,
+          target: [DEFAULT_THEME[0]].concat(target)
+        };
       } else {
         // 主题名
         console.log('is theme name', theme);
