@@ -1,5 +1,5 @@
 <h2>默认使用</h2>
-<d-calendar-graph text="ka"></d-calendar-graph>
+<d-calendar-graph text="DevUI"></d-calendar-graph>
 
 <!-- <h2>定制主题 theme</h2>
 <d-calendar-graph text="DevUI is excellent" theme="halloween"></d-calendar-graph>
@@ -44,25 +44,30 @@
   L3 11-12-13
   L4 18
 -->
+<h2>主题API</h2>
+
+<h3>主题名称</h3>
+<d-calendar-graph [dataSource]="myContributions" text="DevUI is excellent" theme="halloween"></d-calendar-graph>
+
+<h3>基本色</h3>
+<d-calendar-graph [dataSource]="myContributions" text="DevUI is excellent" theme="#c6e48b"></d-calendar-graph>
+
+<h3>颜色数组</h3>
+<d-calendar-graph 
+  [dataSource]="myContributions" 
+  text="DevUI is excellent" 
+  [theme]="['#ebedf0', '#fdde8a', '#fa9e59', '#e55648', '#ae1345']"
+></d-calendar-graph>
+
+<h3>阶梯查找表</h3>
 <d-calendar-graph date="2019-12-01" [dataSource]="myContributions" [theme]="{
   source: [0, 4, 9, 13, 18],
   target: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']
 }"></d-calendar-graph>
 
-
-<d-calendar-graph [dataSource]="myContributions" text="DevUI is excellent" theme="halloween"></d-calendar-graph>
-
-<d-calendar-graph [dataSource]="myContributions" text="DevUI is excellent" theme="#c6e48b"></d-calendar-graph>
-
-<!-- <d-calendar-graph [dataSource]="myContributions" text="DevUI is excellent" [theme]="['#d8e9f2', '#fdde8a', '#fa9e59', '#e55648', '#ae1345']"></d-calendar-graph>
-
+<h3>数值/颜色映射表</h3>
 <d-calendar-graph [dataSource]="myContributions" text="DevUI is excellent" [theme]="{
-  source: [0, 10, 20, 30, 40],
-  target: ['#d8e9f2', '#f57647', '#ee6544', '#e55648', '#db484c']
-}"></d-calendar-graph>
-
-<d-calendar-graph [dataSource]="myContributions" text="DevUI is excellent" [theme]="{
-  '0': '#d8e9f2',
+  '0': '#ebedf0',
   '5': '#fbe793',
   '10': '#fdcf7d',
   '20': '#fdb163',
@@ -71,7 +76,6 @@
   '200': '#db484c',
   '500': '#bf2649',
   '1000': '#9e0142'
-}"></d-calendar-graph> -->
-
+}"></d-calendar-graph>
 
 <router-outlet></router-outlet>
