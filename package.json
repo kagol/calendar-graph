@@ -23,7 +23,7 @@
     "@angular/platform-browser-dynamic": "~10.0.3",
     "@angular/router": "~10.0.3",
     "@kagol/ktools": "0.0.8",
-    "moment": "^2.29.1",
+    "moment": "^2.29.2",
     "ng-calendar-graph": "0.0.6",
     "ng-devui": "^9.3.0",
     "rxjs": "~6.5.5",
